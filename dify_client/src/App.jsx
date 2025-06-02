@@ -8,6 +8,7 @@ import AboutSection from './components/sections/AboutSection';
 import WorkflowSection from './components/sections/WorkflowSection';
 import ProjectsSection from './components/sections/ProjectsSection';
 import TestimonialsSection from './components/sections/TestimonialsSection';
+import DevelopersSection from './components/sections/DevelopersSection';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import TermsConditions from './components/pages/TermsConditions';
 import StarBackground from './components/ui/StarBackground';
@@ -50,6 +51,15 @@ const HomePage = ({ isContactModalOpen, setIsContactModalOpen, activeSection }) 
           viewport={{ once: true }}
         >
           <ProjectsSection />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <DevelopersSection />
         </motion.div>
 
         <motion.div

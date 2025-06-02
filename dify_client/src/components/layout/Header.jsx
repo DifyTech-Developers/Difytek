@@ -30,11 +30,11 @@ const Header = ({ onContactClick, activeSection }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isOpen]);
-
   const navigation = [
     { name: 'Home', href: '#home', section: 'home' },
     { name: 'About', href: '#about', section: 'about' },
     { name: 'Projects', href: '#projects', section: 'projects' },
+    { name: 'Team', href: '#team', section: 'team' },
     { name: 'Contact', onClick: onContactClick, isSpecial: true },
   ];
 
