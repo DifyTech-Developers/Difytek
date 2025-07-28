@@ -2,22 +2,25 @@ import { motion } from 'framer-motion';
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "CTO, TechCorp",
-    image: "https://randomuser.me/api/portraits/women/1.jpg",
-    content: "DifyTek transformed our business operations with their innovative solutions. The team's expertise and dedication to excellence are unmatched.",
+    name: "Ravi Mehra",
+    role: "Administrator, National Degree College",
+    image: "/Logo.png",
+    content: "The Campus Management System developed by this team completely digitized our academic operations. From attendance to scheduling, everything is streamlined and easy to manage now.",
+    linkedProject: "Campus Management System"
   },
   {
-    name: "Michael Chang",
-    role: "Founder, InnovateLabs",
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
-    content: "Working with DifyTek was a game-changer for us. Their AI solutions helped us achieve 200% growth in just six months.",
+    name: "Priya Sharma",
+    role: "Founder, StyleCart India",
+    image: "/Logo.png",
+    content: "Launching our online store with their eCommerce solution was the best decision. It’s smooth, fast, and gives our customers a hassle-free shopping experience.",
+    linkedProject: "E-Commerce Product Store"
   },
   {
-    name: "Emma Thompson",
-    role: "Director, FutureTech",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
-    content: "The level of professionalism and technical expertise at DifyTek is exceptional. They delivered beyond our expectations.",
+    name: "Amit Verma",
+    role: "Marketing Head, LuxeSpaces",
+    image: "/Logo.png",
+    content: "The Build Now, Pay Later landing page helped us boost conversions significantly. The design is clean, modern, and speaks directly to our target audience.",
+    linkedProject: "Build Now, Pay Later Landing Page"
   }
 ];
 

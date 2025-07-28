@@ -32,9 +32,9 @@ const Header = ({ onContactClick, activeSection }) => {
   }, [isOpen]);
   const navigation = [
     { name: 'Home', href: '#home', section: 'home' },
-    { name: 'About', href: '#about', section: 'about' },
     { name: 'Projects', href: '#projects', section: 'projects' },
-    { name: 'Team', href: '#team', section: 'team' },
+    { name: 'About', href: '#about', section: 'about' },
+    // { name: 'Team', href: '#team', section: 'team' },
     { name: 'Contact', onClick: onContactClick, isSpecial: true },
   ];
 

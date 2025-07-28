@@ -18,59 +18,27 @@ import { Toaster } from 'react-hot-toast';
 const HomePage = ({ isContactModalOpen, setIsContactModalOpen, activeSection }) => {
   return (
     <>
-      <motion.main
-        className="relative"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      <main className="relative smooth-transition">
         <HeroSection onContactClick={() => setIsContactModalOpen(true)} />
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <AboutSection />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <WorkflowSection />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
+        <div className="section-fade" id="projects-section">
           <ProjectsSection />
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <DevelopersSection />
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
+        <div className="section-fade" id="about-section">
+          <AboutSection />
+        </div>
+
+
+        <div className="section-fade" id="testimonials-section">
           <TestimonialsSection />
-        </motion.div>
-      </motion.main>
+        </div>
+        <div className="section-fade" id="workflow-section">
+          <WorkflowSection />
+        </div>
+
+      </main>
 
       <AnimatePresence>
         {isContactModalOpen && (
@@ -93,14 +61,20 @@ function App() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+            entry.target.classList.add('visible');
+            if (entry.target.id) {
+              setActiveSection(entry.target.id);
+            }
           }
         });
       },
-      { threshold: 0.5 }
+      {
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
     );
 
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll('section[id], .section-fade');
     sections.forEach((section) => observer.observe(section));
 
     return () => sections.forEach((section) => observer.unobserve(section));

@@ -15,42 +15,36 @@ const stats = [
 ];
 
 const FloatingCube = () => (
-  <motion.div
-    animate={{
-      rotateX: [0, 360],
-      rotateY: [0, 360],
-    }}
-    transition={{
-      duration: 20,
-      repeat: Infinity,
-      ease: "linear"
-    }}
-    className="w-40 h-40 relative preserve-3d"
-    style={{ perspective: "1000px" }}
-  >
-    {/* Front face with logo */}
-    <div
-      className="absolute w-full h-full border-2 border-[var(--color-space-neon)] bg-[var(--color-space-neon)]/5 backdrop-blur-sm flex items-center justify-center"
-      style={{
-        transform: 'translateZ(80px)',
-        backfaceVisibility: 'hidden',
-      }}
-    >
-      <img src="/Logo.png" alt="DifyTek Logo" className="w-3/4 h-3/4 object-contain" />
+  <div className="w-40 h-40 relative preserve-3d cube-container">
+    <div className="cube">
+      {/* Front face with logo */}
+      <div className="cube-face cube-face-front">
+        <img src="/Logo.png" alt="DifyTek Logo" className="w-3/4 h-3/4 object-contain" />
+      </div>
+      <div className="cube-face cube-face-bottom">
+        <img src="/Logo.png" alt="DifyTek Logo" className="w-3/4 h-3/4 object-contain" />
+      </div>
+      <div className="cube-face cube-face-top">
+        <img src="/Logo.png" alt="DifyTek Logo" className="w-3/4 h-3/4 object-contain" />
+      </div>
+      <div className="cube-face cube-face-left">
+        <img src="/Logo.png" alt="DifyTek Logo" className="w-3/4 h-3/4 object-contain" />
+      </div>
+      <div className="cube-face cube-face-right">
+        <img src="/Logo.png" alt="DifyTek Logo" className="w-3/4 h-3/4 object-contain" />
+      </div>
+      <div className="cube-face cube-face-back">
+        <img src="/Logo.png" alt="DifyTek Logo" className="w-3/4 h-3/4 object-contain" />
+      </div>
+      {/* 
+      Other faces
+      <div className="cube-face cube-face-back" />
+      <div className="cube-face cube-face-right" />
+      <div className="cube-face cube-face-left" />
+      <div className="cube-face cube-face-top" />
+      <div className="cube-face cube-face-bottom" /> */}
     </div>
-
-    {/* Other cube faces */}
-    {[...Array(5)].map((_, index) => (
-      <div
-        key={index}
-        className="absolute w-full h-full border-2 border-[var(--color-space-neon)] bg-[var(--color-space-neon)]/5 backdrop-blur-sm"
-        style={{
-          transform: `rotateY(${(index + 1) * 90}deg) translateZ(80px)${index > 2 ? ' rotateX(90deg)' : ''}`,
-          backfaceVisibility: 'hidden',
-        }}
-      />
-    ))}
-  </motion.div>
+  </div>
 );
 
 const HeroSection = ({ onContactClick }) => {
@@ -67,8 +61,7 @@ const HeroSection = ({ onContactClick }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
+        duration: 0.5
       }
     }
   };
@@ -78,7 +71,10 @@ const HeroSection = ({ onContactClick }) => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8 }
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
     }
   };
 
@@ -111,7 +107,7 @@ const HeroSection = ({ onContactClick }) => {
               <img
                 src={tech.icon}
                 alt={tech.name}
-                className="w-8 h-8 md:w-10 md:h-10 object-contain filter brightness-150 hover:brightness-200 transition-all duration-300"
+                className="w-8 h-8 md:w-10 md:h-10 object-contain filter brightness-150 hover:brightness-200 transition-all duration-300 tech-icon"
               />
               <span className="text-sm mt-2 text-space-text-secondary">{tech.name}</span>
             </motion.div>
@@ -183,7 +179,7 @@ const HeroSection = ({ onContactClick }) => {
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 className="p-6 rounded-lg bg-[var(--color-space-black)]/40 backdrop-blur-sm border border-[var(--color-space-neon)]/20
-                  hover:border-[var(--color-space-neon)]/40 transition-all duration-300"
+                  hover:border-[var(--color-space-neon)]/40 stat-card"
               >
                 <div className="text-3xl font-bold text-[var(--color-space-neon)] mb-2">
                   {stat.value}
